@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"> 
+        <button class="left-button" onclick="change('left')">left</button>    
+        <button class="right-button"onclick="change('right')">right</button>         
+    </div>
+    
+    <script>
+        let item=[
+        "images/food1.jpg", 
+        "images/food2.jpg", 
+        "images/food3.jpg", 
+        "images/food4.jpg",
+        "images/food5.jpg", 
+        "images/food6.jpg", 
+        "images/food7.jpg"];
+        
+        const container = document.getElementsByClassName("container");
+        let foodImageItem = document.getElementsByClassName("food");
+
+    function displayImage(){     
+        if(foodImageItem.length > 0){
+            for(let i = foodImageItem.length - 1; i >= 0; i--){
+                foodImageItem[i].remove();
+            }            
+        }
+        for(let i=0; i<item.length; i++){
+            let img= document.createElement("img");
+            img.src= item[i];
+            img.classList.add('food');
+            container[0].appendChild(img);
+            console.log(img); 
+        }
+    }
+    (()=>{
+        displayImage();
+    }
+    )();
+    
+        function change(direction){
+            if(item.length > 0 && direction == 'right'){
+                const leftItem = item.pop()
+                item.unshift(leftItem);
+
+            }else{
+                const rightItem = item.shift()
+                item.push(rightItem);  
+            }
+            displayImage();
+        }
+        
+    </script>
+</body>
+</html>
+
+

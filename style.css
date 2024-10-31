@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+.food {
+    border-radius: 50px;
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border: 3px solid gray;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    filter: blur(3px);
+    transition: transform 3s ease-out, filter 3s ease-out, width 3s ease-out; 
+  
+}
+
+.food:nth-child(6) {
+    filter: none;
+    transform: scale(1.1); 
+    width: 300px; 
+    transition: transform 3s ease-out, filter 3s ease-out, width 3s ease-out; 
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 2px solid #333; 
+    padding: 10px 20px;
+    cursor: pointer; 
+    z-index: 1;
+}
+
+.left-button {
+    left: 0px; 
+}
+
+.right-button {
+    right: 10px; 
+}
